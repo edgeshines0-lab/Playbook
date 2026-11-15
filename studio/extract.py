@@ -45,4 +45,8 @@ D['price'].update(rates=[dict(term=v(ws,f'A{r}'),roof=ws[f'B{r}'].value,mini=ws[
   example=dict(label=v(ws,'A19'),scope=v(ws,'B19'),calc=v(ws,'C19'),total=v(ws,'D19')),
   scoping=rows(ws,22,26,dict(n='A',q='B')),
   safety=[v(ws,f'{c}{r}') for r in (29,30) for c in 'BCD'])
-print('const DATA='+json.dumps(D,ensure_ascii=False)+';')
+if len(sys.argv) > 2:
+    json.dump(D, open(sys.argv[2], 'w'), ensure_ascii=False, indent=1)
+    print('wrote', sys.argv[2])
+else:
+    print(json.dumps(D, ensure_ascii=False))

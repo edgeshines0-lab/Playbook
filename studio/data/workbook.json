@@ -1,0 +1,1194 @@
+{
+ "sop": {
+  "sheet": "01 SALES SOP",
+  "title": "EDGE SHINES  |  CHRISTMAS LIGHT SALES SOP",
+  "sub": "START HERE • Follow in order on every inbound or outbound holiday-lighting lead. Record actual customer activity in FLYRA.",
+  "steps": [
+   {
+    "n": "01",
+    "stage": "Open lead",
+    "do": "Open the FLYRA inquiry. Check previous calls/texts, lead source, address, and any existing estimate before calling.",
+    "result": "Avoid duplicate work",
+    "row": 6
+   },
+   {
+    "n": "02",
+    "stage": "Introduce + permission",
+    "do": "“Hi, this is Emily with Edge Shines Christmas Lights. You inquired about lighting your home—do you have 5–10 minutes to go over how it works?”",
+    "result": "Connected / callback time",
+    "row": 7
+   },
+   {
+    "n": "03",
+    "stage": "Explain value + budget",
+    "do": "Explain done-for-you seasonal service; company-provided commercial C9 LEDs; fixed color; custom fit; install, maintenance, takedown and storage. Typical home is around $1,000/season. Ask whether that range is reasonable.",
+    "result": "Budget qualified",
+    "row": 8
+   },
+   {
+    "n": "04",
+    "stage": "Decision-maker",
+    "do": "Ask: “Will anyone else be involved in approving the design and price?” If yes, invite them to participate or confirm how decisions will be made.",
+    "result": "Decision-maker recorded",
+    "row": 9
+   },
+   {
+    "n": "05",
+    "stage": "Confirm property + design",
+    "do": "Confirm full street/city/ZIP, roofline or full-property request, color scheme, landscaping, target install date and special access concerns.",
+    "result": "Clear requested scope",
+    "row": 10
+   },
+   {
+    "n": "06",
+    "stage": "Check aerial measurements LIVE",
+    "do": "Open approved measurement tool while on call. Trace ONLY areas the customer wants lit; distinguish roofline from peaks, porch/garage and add-ons. Verify front photos if possible.",
+    "result": "Footage / scope captured",
+    "row": 11
+   },
+   {
+    "n": "07",
+    "stage": "Qualify quote confidence",
+    "do": "Standard, visible roofline + reliable measurements = quote on call. Unclear steep/metal roof, high access, hidden sections or uncertain lengths = estimated range pending review.",
+    "result": "Firm quote or range",
+    "row": 12
+   },
+   {
+    "n": "08",
+    "stage": "Price by agreement",
+    "do": "Use current OWNER-APPROVED rate card; price roofline plus minis, stakes, wreaths and special access separately. Explain seasonal scope and term before presenting total.",
+    "result": "Seasonal quote ready",
+    "row": 13
+   },
+   {
+    "n": "09",
+    "stage": "Explain agreement",
+    "do": "Explain that the standard multi-year plan allows the company to invest in custom-fit materials up front and return for subsequent seasons. Check current term and cancellation exception.",
+    "result": "Terms understood",
+    "row": 14
+   },
+   {
+    "n": "10",
+    "stage": "Mockup + design",
+    "do": "Use the customer's property photo and one of the THREE AI prompts. Review accuracy; present it as a visual concept, not a field measurement.",
+    "result": "Design attached / shared",
+    "row": 15
+   },
+   {
+    "n": "11",
+    "stage": "Ask for sale",
+    "do": "“If the design and total work for you, would you like us to reserve an installation date?” If not, find the actual concern and use Objections tab.",
+    "result": "Accepted / objection",
+    "row": 16
+   },
+   {
+    "n": "12",
+    "stage": "Create quote + next action",
+    "do": "If quote needed: open lead → Convert to Customer → Subscription → create/send estimate. If accepted, follow signed agreement and deposit process. Set owner and exact next step.",
+    "result": "No unowned leads",
+    "row": 17
+   }
+  ],
+  "rules": [
+   {
+    "icon": "✓",
+    "case": "Simple visible house",
+    "how": "Measure live, apply verified per-foot price, give a seasonal total while on the phone.",
+    "expect": "Final subject to actual site conditions",
+    "row": 21
+   },
+   {
+    "icon": "!",
+    "case": "Complex roof or obstructed views",
+    "how": "Give a transparent price range; request better photo or supervisor check BEFORE firm agreement.",
+    "expect": "Don't invent footage / access",
+    "row": 22
+   },
+   {
+    "icon": "✓",
+    "case": "Customer wants only roofline",
+    "how": "Quote only visible installable requested roof edges. Don't price optional landscaping.",
+    "expect": "Keep quote simple",
+    "row": 23
+   },
+   {
+    "icon": "✓",
+    "case": "Customer budget below proposal",
+    "how": "Offer smaller front-roofline phase or fewer add-ons; don't silently reduce agreed quality.",
+    "expect": "Revised scope, not fake discount",
+    "row": 24
+   },
+   {
+    "icon": "!",
+    "case": "Homeowner-supplied lights",
+    "how": "We install company-provided commercial lights only; explain maintenance and custom-fit benefits.",
+    "expect": "No homeowner light installs",
+    "row": 25
+   },
+   {
+    "icon": "✓",
+    "case": "Customer says yes",
+    "how": "Issue the agreement and deposit request via company process, then confirm installation scheduling.",
+    "expect": "Don't mark booked early",
+    "row": 26
+   }
+  ],
+  "facts": [
+   "Contact result",
+   "Confirmed address",
+   "Requested design/color",
+   "Budget + agreement term",
+   "Quote/status",
+   "Named owner + dated next action"
+  ],
+  "factsRow": 29
+ },
+ "script": {
+  "sheet": "02 CALL SCRIPT",
+  "title": "EMILY'S PHONE SCRIPT  |  READ NATURALLY",
+  "sub": "Copy-ready language from first hello through closing. Use the exact estimate and agreement language approved by Edge Shines.",
+  "lines": [
+   {
+    "n": "01",
+    "when": "Opening",
+    "say": "Hi! How are you doing? This is Emily with Edge Shines Christmas Lights. I’m calling about your interest in decorating your property. Is now a good time for a quick 5–10 minute conversation?",
+    "action": "Pause for response",
+    "row": 6
+   },
+   {
+    "n": "02",
+    "when": "Done-for-you service",
+    "say": "What I’ll do is quickly explain how our service works. It's completely done for you: we provide the lights, professionally install them, maintain them during the season, and return to take them down and store them afterward.",
+    "action": "Establish value",
+    "row": 7
+   },
+   {
+    "n": "03",
+    "when": "Lights + price EARLY",
+    "say": "We use commercial-grade C9 LED lights that are custom-cut and spliced to fit your home. You choose the color or fixed color pattern, but they are not app-controlled color-changing lights. The average home is around $1,000 per season depending on the design. Is that somewhere around the budget you had in mind?",
+    "action": "Budget fit / expectations",
+    "row": 8
+   },
+   {
+    "n": "04",
+    "when": "Materials policy",
+    "say": "And just so you know, we install our own professional lights rather than homeowner-supplied lights, so we're able to stand behind the fit and maintenance.",
+    "action": "No customer-supplied lights",
+    "row": 9
+   },
+   {
+    "n": "05",
+    "when": "Decision-maker",
+    "say": "Before we start, are you the main decision-maker for the Christmas lights, or will someone else also be involved?",
+    "action": "Identify approvals",
+    "row": 10
+   },
+   {
+    "n": "06",
+    "when": "Property and scope",
+    "say": "What's the full property address, including city and ZIP? Are you mainly thinking roofline, or would you also like bushes, trees, wreaths, garland or walkway lighting?",
+    "action": "Scope + address",
+    "row": 11
+   },
+   {
+    "n": "07",
+    "when": "Color + timing",
+    "say": "Do you prefer classic warm white, a multicolor pattern, or something else? And about when were you hoping to have everything installed?",
+    "action": "Fixed color / timeline",
+    "row": 12
+   },
+   {
+    "n": "08",
+    "when": "Design consultation",
+    "say": "We can pull up your home using online property images and create a customized mockup of what it could look like. We'll design around your style and budget, then adjust anything you want changed.",
+    "action": "Permission to show concept",
+    "row": 13
+   },
+   {
+    "n": "09",
+    "when": "Measure while on call",
+    "say": "While we're talking, I'm going to check the roofline areas you want lit using our aerial measuring process. That gives us a starting point for the price without having to book a separate measurement visit.",
+    "action": "Follow measuring SOP",
+    "row": 14
+   },
+   {
+    "n": "10",
+    "when": "Present preliminary price",
+    "say": "Based on the roofline and areas we just discussed, the seasonal price is approximately $____. That includes the company-provided lights, installation, standard in-season maintenance, removal and storage. [If measurement is verified: ‘I can prepare the formal quote from this.’]",
+    "action": "Don't call range a firm price",
+    "row": 15
+   },
+   {
+    "n": "11",
+    "when": "Explain 3-year model",
+    "say": "Our standard 3-year option is designed so we invest in the custom-cut materials for your house the first season, then come back for the next two seasons to reinstall and take everything down. It helps us offer a competitive seasonal rate.",
+    "action": "Explain, don't pressure",
+    "row": 16
+   },
+   {
+    "n": "12",
+    "when": "If price is too high",
+    "say": "I completely understand. We can simplify the design—maybe prioritize the front roofline first—and build something that fits more comfortably without compromising how neatly it's installed.",
+    "action": "Ask target budget",
+    "row": 17
+   },
+   {
+    "n": "13",
+    "when": "Mockup reveal",
+    "say": "I have a design concept showing the lighting on your property. What do you like most about it, and is there anything you'd change?",
+    "action": "Listen before talking",
+    "row": 18
+   },
+   {
+    "n": "14",
+    "when": "Close the sale",
+    "say": "If you love the design and the price works for you, would you like us to move forward with the agreement and get your installation scheduled?",
+    "action": "Ask directly",
+    "row": 19
+   },
+   {
+    "n": "15",
+    "when": "When accepted",
+    "say": "Perfect! I'll confirm the details, send over your seasonal agreement and payment information, and we can reserve your spot once the required steps are completed.",
+    "action": "FLYRA customer + subscription",
+    "row": 20
+   },
+   {
+    "n": "16",
+    "when": "If not ready",
+    "say": "No problem. Is it the design, the investment, or the agreement length you're still thinking about? Let's make sure I have the right information for you.",
+    "action": "Record genuine concern",
+    "row": 21
+   },
+   {
+    "n": "17",
+    "when": "End call",
+    "say": "What works best for our next step—reviewing the revised design, completing the agreement, or reconnecting at [specific day/time]? I'll confirm the details by text.",
+    "action": "Set exact next step",
+    "row": 22
+   }
+  ],
+  "never": [
+   "Exact final footage from an unclear satellite view",
+   "Any color not in inventory",
+   "Special installation method on a roof not inspected",
+   "Zero cancellation charges regardless of agreement",
+   "A date that has not been reserved"
+  ],
+  "neverRow": 25
+ },
+ "fast": {
+  "sheet": "03 FAST QUOTES",
+  "title": "FAST PHONE QUOTING  |  NO SEPARATE CALCULATOR",
+  "sub": "Goal: quote routine roofs on the first call. Rate card is a management reference—confirm rates before reps start selling.",
+  "routine": [
+   {
+    "n": "1",
+    "action": "Confirm address",
+    "how": "Ask for full street address, town and ZIP; match the exact house using street view/property image.",
+    "stop": "If wrong property",
+    "row": 6
+   },
+   {
+    "n": "2",
+    "action": "Pick scope",
+    "how": "Ask: front roofline, entire accessible roofline, garages/peaks, or full-property? Only price sections they approve.",
+    "stop": "If customer unsure, offer 2 scope options",
+    "row": 7
+   },
+   {
+    "n": "3",
+    "action": "Open measuring tool",
+    "how": "Use the company's chosen aerial roofline tool (e.g., Measured Bid or LightQuoter) or Google Earth manual tracing. Keep it open alongside FLYRA.",
+    "stop": "If no usable imagery",
+    "row": 8
+   },
+   {
+    "n": "4",
+    "action": "Trace installable lines",
+    "how": "Trace each gutter, peak and garage edge requested. Do not include roof planes, duplicate edges or impossible/unseen sections.",
+    "stop": "If slope or access uncertain",
+    "row": 9
+   },
+   {
+    "n": "5",
+    "action": "Check difficult conditions",
+    "how": "Check number of stories, steep peaks, metal/fragile roofs, ladder placement, big trees, outlet availability and roofline access.",
+    "stop": "High/difficult roof → review",
+    "row": 10
+   },
+   {
+    "n": "6",
+    "action": "Price with rate card",
+    "how": "Multiply measured length by approved rate for selected term. Add minis/stakes/wreaths or special labor as separate items. Avoid undisclosed add-ons.",
+    "stop": "If rates not approved",
+    "row": 11
+   },
+   {
+    "n": "7",
+    "action": "Quote with confidence level",
+    "how": "Reliable image + uncomplicated access: present quote now. Unreliable measurement: present labeled preliminary range and arrange verification before finalizing.",
+    "stop": "Don't guarantee risky footage",
+    "row": 12
+   },
+   {
+    "n": "8",
+    "action": "Close and capture",
+    "how": "Recap design + seasonal total + plan. Ask to proceed; when quote needed use Convert to Customer → Subscription in FLYRA.",
+    "stop": "Customer decision + next step",
+    "row": 13
+   }
+  ],
+  "rates": [
+   {
+    "term": "2-year",
+    "roof": "$10 / linear foot",
+    "mini": "$50 / strand",
+    "stake": "$7 / linear foot",
+    "row": 17
+   },
+   {
+    "term": "3-year",
+    "roof": "$8 / linear foot",
+    "mini": "$50 / strand",
+    "stake": "$7 / linear foot",
+    "row": 18
+   },
+   {
+    "term": "4-year",
+    "roof": "$7 / linear foot",
+    "mini": "$50 / strand",
+    "stake": "$6 / linear foot",
+    "row": 19
+   }
+  ],
+  "rateNote": "Reference prices from the existing Edge Shines plan; verify active package rates, minimums, add-ons, discounts, taxes, agreement terms, and promotional exceptions before quoting. This is NOT an automatic price calculator.",
+  "checkpoint": [
+   {
+    "verify": "Measurements match design",
+    "why": "Avoid pricing 100 feet while depicting 160 feet.",
+    "action": "Compare traced sections to mockup",
+    "row": 24
+   },
+   {
+    "verify": "Single fixed color confirmed",
+    "why": "Color must be available and not app-changeable.",
+    "action": "Confirm bulb stock or lead time",
+    "row": 25
+   },
+   {
+    "verify": "Seasonal package scope",
+    "why": "Company provides lights; install, maintenance, removal, storage included as agreed.",
+    "action": "Say inclusions",
+    "row": 26
+   },
+   {
+    "verify": "Material and add-on count",
+    "why": "Trees, shrubs, stakes, wreaths, garland, wiring, access surcharge if applicable.",
+    "action": "Don't bury extras",
+    "row": 27
+   },
+   {
+    "verify": "Deposit + agreement",
+    "why": "Current policy is usually 50% deposit; terms and tax depend on agreement.",
+    "action": "Confirm current approved terms",
+    "row": 28
+   },
+   {
+    "verify": "FIRM vs PRELIMINARY",
+    "why": "Unknown steep/high roof, imagery blocked, unsafe access or disputed measurements.",
+    "action": "Escalate before firm price",
+    "row": 29
+   }
+  ],
+  "cantVerify": "“From the images and the design you're looking for, I expect the seasonal price to be around $___–$___. I want to verify one roof section before promising a fixed price, so there aren't any surprises.”"
+ },
+ "facts": {
+  "sheet": "04 SERVICE FACTS",
+  "title": "SERVICE & PRODUCT KNOWLEDGE  |  QUICK ANSWERS",
+  "sub": "Use these facts when customers ask what they are buying. Do not substitute broad promises for the signed service agreement.",
+  "items": [
+   {
+    "topic": "Product type",
+    "say": "Commercial-grade C9 LED Christmas lights on customized socket line. Use ‘C9 LED’ when the customer asks what type.",
+    "check": "Bulb style available in stock",
+    "row": 6
+   },
+   {
+    "topic": "Seasonal vs permanent",
+    "say": "These are professionally installed seasonal holiday lights—not permanent, phone-controlled color-changing lighting.",
+    "check": "Do not imply app control",
+    "row": 7
+   },
+   {
+    "topic": "Colors",
+    "say": "Customers can choose from available fixed colors or fixed multi-color patterns. Black and gray are not offered.",
+    "check": "Confirm specific color availability",
+    "row": 8
+   },
+   {
+    "topic": "Can colors change?",
+    "say": "No. The installed bulb colors remain what the customer selects. Changing colors requires replacing/reworking bulbs rather than tapping an app.",
+    "check": "Explain prior to selling",
+    "row": 9
+   },
+   {
+    "topic": "Client supplies lights?",
+    "say": "No. Edge Shines does not install homeowner-provided light strings or bulbs.",
+    "check": "Company-supplied only",
+    "row": 10
+   },
+   {
+    "topic": "Custom fit",
+    "say": "We measure, custom-cut and splice socket line to the home's approved roofline so there aren't stray bulbs dangling past edges.",
+    "check": "Exact installable footprint",
+    "row": 11
+   },
+   {
+    "topic": "Spacing",
+    "say": "Typical roofline presentation uses approximately 15-inch spacing unless the approved design specifies otherwise.",
+    "check": "Confirm stock line spacing",
+    "row": 12
+   },
+   {
+    "topic": "Roofline coverage",
+    "say": "Follow installable gutters, roof peaks, gables, garage edges and other approved lines; don't add lines where there are no secure mounting options.",
+    "check": "Access review",
+    "row": 13
+   },
+   {
+    "topic": "Bushes and trees",
+    "say": "Mini lights can wrap approved shrubs/trees; quote by strand or project using approved material quantities.",
+    "check": "Count separately",
+    "row": 14
+   },
+   {
+    "topic": "Ground lighting",
+    "say": "Ground stakes can border an approved driveway or walkway; quote lengths separately.",
+    "check": "Snow / plow exposure",
+    "row": 15
+   },
+   {
+    "topic": "Wreaths / garland",
+    "say": "Available as separate custom-design add-ons when quoted and in stock.",
+    "check": "Size, lights, wiring, mount",
+    "row": 16
+   },
+   {
+    "topic": "Mockup accuracy",
+    "say": "AI mockups illustrate a proposal; architecture must remain the same and only the selected areas should be lit.",
+    "check": "Mockup is not measurement",
+    "row": 17
+   },
+   {
+    "topic": "In-season upkeep",
+    "say": "Standard service includes maintenance of company-installed lights during the contracted season, subject to agreement exclusions.",
+    "check": "Third-party damage exclusions",
+    "row": 18
+   },
+   {
+    "topic": "Takedown",
+    "say": "Edge Shines returns to professionally remove the seasonal setup after the holiday period.",
+    "check": "Seasonal calendar",
+    "row": 19
+   },
+   {
+    "topic": "Storage",
+    "say": "The company stores its lighting and materials for the next applicable season.",
+    "check": "Company owns materials",
+    "row": 20
+   },
+   {
+    "topic": "Who owns the lights?",
+    "say": "Company-provided bulbs, wires, clips, timers and decorations remain company property unless the signed agreement expressly differs.",
+    "check": "Don't promise ownership transfer",
+    "row": 21
+   },
+   {
+    "topic": "Timer",
+    "say": "Timers / controls may be installed as part of the service; operation depends on the specific selected product.",
+    "check": "Check schedule and sensor",
+    "row": 22
+   },
+   {
+    "topic": "Electrical setup",
+    "say": "We need appropriate power access. Additional wiring/outlet needs may affect the plan.",
+    "check": "Do not promise new circuits",
+    "row": 23
+   },
+   {
+    "topic": "Deposit",
+    "say": "Standard program uses a 50% deposit to reserve a season; balance is generally due upon completed installation.",
+    "check": "Check current agreement",
+    "row": 24
+   },
+   {
+    "topic": "Agreement term",
+    "say": "The standard 3-year plan returns in years 2 and 3; 2- and 4-year options may be available at approved pricing.",
+    "check": "Confirm chosen option",
+    "row": 25
+   },
+   {
+    "topic": "Reason for multi-year",
+    "say": "Most custom material and initial setup investment occurs in the first season, so later seasons are important for sustainable pricing.",
+    "check": "Do not claim exact losses",
+    "row": 26
+   },
+   {
+    "topic": "Early cancellation",
+    "say": "Your typical policy uses a fee of 40% of that year's seasonal bill for applicable early cancellation, to offset custom materials. Agreement exceptions control.",
+    "check": "Confirm actual signed terms",
+    "row": 27
+   },
+   {
+    "topic": "Competitor comparison",
+    "say": "Explain the full-service value and competitive pricing objectives, not unverified claims of being the cheapest.",
+    "check": "No unsupported ranking",
+    "row": 28
+   },
+   {
+    "topic": "Typical home price",
+    "say": "Use around $1,000 per season as a general expectation setter—not a guaranteed minimum, maximum or fixed house quote.",
+    "check": "Actual price by design",
+    "row": 29
+   },
+   {
+    "topic": "Roof safety",
+    "say": "Use approved attachment methods based on roof/siding material. Never promise staples, glue, magnets or no damage without reviewing conditions.",
+    "check": "Escalate unusual roof materials",
+    "row": 30
+   }
+  ]
+ },
+ "obj": {
+  "sheet": "05 OBJECTIONS",
+  "title": "OBJECTION FINDER  |  SELECT A QUESTION",
+  "sub": "Choose an objection in B4 to bring its answer to the top. Full answer bank is below; adjust terms to the customer's signed agreement.",
+  "items": [
+   {
+    "says": "I don't want a 3-year agreement",
+    "answer": "I understand. We aim to offer competitive full-service pricing. In year one we buy the lights, custom-cut and splice everything to your home, and complete the initial setup—so that first season carries most of our material costs. The later seasons are how we make the multi-year service sustainable. We return each year to install, maintain, remove and store everything.",
+    "next": "Would you like me to show what the different approved agreement lengths look like?",
+    "row": 11
+   },
+   {
+    "says": "What if I cancel in the second year?",
+    "answer": "For agreements with our standard early-cancellation clause, the fee is 40% of that year's seasonal bill. It helps recover the cost of materials already custom-fit to your home. I can show you the exact wording before you sign; any promotional exception in your signed agreement takes precedence.",
+    "next": "Would you like me to send the specific cancellation section for review?",
+    "row": 12
+   },
+   {
+    "says": "Why can't I do one year?",
+    "answer": "Our standard business model is based on multiple seasons because the first-year custom materials and installation are the largest investment. I can review whether a shorter option or one-time custom quote is currently approved.",
+    "next": "Should I check the options for your property?",
+    "row": 13
+   },
+   {
+    "says": "Is $1,000 the price for my house?",
+    "answer": "That's the approximate price of an average seasonal home, not a universal quote. Your total depends on roofline footage, access, the design and any add-ons. I can measure the requested sections with you now.",
+    "next": "Is roofline-only your priority?",
+    "row": 14
+   },
+   {
+    "says": "It's too expensive",
+    "answer": "I understand. We supply professional lights, custom-fit the lines, install, provide maintenance, then remove and store everything. We can simplify the design—often starting with the front roofline—to bring the total closer to your goal.",
+    "next": "What total would you be more comfortable with?",
+    "row": 15
+   },
+   {
+    "says": "Other companies are cheaper",
+    "answer": "That may be true for a different scope. Our quote includes the custom-fit company-owned C9 lights, professional setup, seasonal upkeep, takedown and storage. Let's compare what's included rather than only the headline number.",
+    "next": "Do you know whether their quote includes removal and storage?",
+    "row": 16
+   },
+   {
+    "says": "What kind of lights are they?",
+    "answer": "We use commercial-grade C9 LED holiday lights on custom-cut socket line, designed for a clean and uniform roofline.",
+    "next": "Would you prefer warm white or another fixed color?",
+    "row": 17
+   },
+   {
+    "says": "Can the lights change colors?",
+    "answer": "The seasonal C9 lights we quote are fixed-color bulbs, not an app-controlled color-changing system. You can choose an approved single color or fixed multicolor layout when we design it.",
+    "next": "Which fixed look do you prefer?",
+    "row": 18
+   },
+   {
+    "says": "What colors can I choose?",
+    "answer": "We can work with the available C9 colors and fixed patterns, other than black or gray. I'll confirm stock before promising an exact color combination.",
+    "next": "Do you want classic warm white, multicolor or a specific pattern?",
+    "row": 19
+   },
+   {
+    "says": "Will the lights hang over my roof?",
+    "answer": "No loose extra bulbs are part of the plan. We custom-cut and splice the roofline runs to fit the approved edges and install them as neatly as the roof permits.",
+    "next": "Can we focus on the visible front edges first?",
+    "row": 20
+   },
+   {
+    "says": "Can you hang lights I already own?",
+    "answer": "We don't install homeowner-provided lights. Using our own commercial-grade materials lets us custom-fit the layout and manage maintenance consistently.",
+    "next": "Would you like a quote for our done-for-you service?",
+    "row": 21
+   },
+   {
+    "says": "Who owns the lights after installation?",
+    "answer": "Edge Shines retains ownership of the company-provided lights and related materials under our standard service agreement; we store them for upcoming seasons.",
+    "next": "Would you like to review the service-inclusions section?",
+    "row": 22
+   },
+   {
+    "says": "Do you store them for me?",
+    "answer": "Yes. Seasonal removal and storage of our company-provided lighting are included in the standard full-service program.",
+    "next": "Would you like the roofline taken down at the standard seasonal time?",
+    "row": 23
+   },
+   {
+    "says": "What if a bulb goes out?",
+    "answer": "Let us know and we'll address covered maintenance issues during the season under the agreement. Damage from third parties or equipment can have different treatment.",
+    "next": "Can I confirm the best contact number for service?",
+    "row": 24
+   },
+   {
+    "says": "Can I get roofline only?",
+    "answer": "Absolutely. Roofline-only is a great clean design, and we can cover as much of the visible installable front roofline as you'd like within your budget.",
+    "next": "Should I include the garage and front peaks?",
+    "row": 25
+   },
+   {
+    "says": "Can you do the trees and bushes?",
+    "answer": "Yes, we can quote minis on selected shrubs and trees as add-ons. We'll estimate the strand count separately from the roofline.",
+    "next": "Which plants do you want included?",
+    "row": 26
+   },
+   {
+    "says": "I need to ask my spouse",
+    "answer": "Of course. I'd be happy to send the design and price so you're both looking at the same option, then we can answer any questions together.",
+    "next": "When would both of you be available for five minutes?",
+    "row": 27
+   },
+   {
+    "says": "I need to think about it",
+    "answer": "Absolutely. Is the main thing you're considering the total price, how the design looks, or the agreement length? I want to send you the information that's actually useful.",
+    "next": "What would help you decide?",
+    "row": 28
+   },
+   {
+    "says": "Just send me pricing",
+    "answer": "Happy to. The accurate way is to confirm the property, the sections you'd like lit, and the seasonal agreement. I can often get you a number while we're speaking.",
+    "next": "What's the full address?",
+    "row": 29
+   },
+   {
+    "says": "I don't have time right now",
+    "answer": "No problem. We only need a few minutes for the consultation. Let's choose a time that works so we can discuss exactly what you want.",
+    "next": "Would later today or tomorrow be better?",
+    "row": 30
+   },
+   {
+    "says": "Can you guarantee the exact mockup?",
+    "answer": "The mockup shows the intended design, but actual lighting will follow installable roof edges and real conditions. We review it for accuracy before finalizing.",
+    "next": "Which elements of the concept matter most to you?",
+    "row": 31
+   },
+   {
+    "says": "Is this permanent lighting?",
+    "answer": "No, it's professional seasonal Christmas lighting. We install it, provide agreed maintenance, then remove and store the lighting.",
+    "next": "Are you looking specifically for seasonal decorating?",
+    "row": 32
+   },
+   {
+    "says": "My roof is metal or aluminum",
+    "answer": "We'd review the roof and approved attachment options before committing to a mounting method. We won't assume that magnets, glue, clips or staples are suitable.",
+    "next": "Could you share a close-up photo of the roof edge?",
+    "row": 33
+   },
+   {
+    "says": "Can you install this week?",
+    "answer": "We'd love to help. I can check available installation dates once we confirm the scope and paperwork, but I don't want to promise a date that isn't reserved.",
+    "next": "What is your ideal installation date?",
+    "row": 34
+   },
+   {
+    "says": "Does the price include removal?",
+    "answer": "Yes. Our standard full-service seasonal pricing includes installation, covered maintenance, removal and storage of our company-owned lighting.",
+    "next": "Do you want me to show the full inclusions on the quote?",
+    "row": 35
+   },
+   {
+    "says": "Can we change the design next year?",
+    "answer": "We can discuss changes, though a multi-year price is built around the original custom-fitted design. New areas, colors or major revisions may require a revised quote.",
+    "next": "What kind of change are you considering?",
+    "row": 36
+   },
+   {
+    "says": "Are there cancellation fee exceptions?",
+    "answer": "Some promotions may offer different terms. The only terms I can promise are those in your specific signed agreement; I'll check them before answering conclusively.",
+    "next": "Can I review the agreement you're being offered?",
+    "row": 37
+   },
+   {
+    "says": "Why is a deposit needed?",
+    "answer": "We reserve labor and prepare custom-fit materials for your property. Our standard program uses a 50% deposit, with the balance generally due upon completed installation.",
+    "next": "Would you like me to send the agreement and payment steps?",
+    "row": 38
+   }
+  ],
+  "policy": "POLICY NOTE  •  Check signed cancellation terms, promotional exceptions, current rates and inventory; do not guarantee costs, dates or materials without verification."
+ },
+ "mock": {
+  "sheet": "06 AI MOCKUPS",
+  "title": "AI MOCKUP SOP  |  ONLY 3 PROMPTS",
+  "sub": "Attach a clear image of the customer's actual property. Copy the entire prompt from the appropriate cell; do not invent the building or lighting locations.",
+  "steps": [
+   {
+    "step": "1  Select photo",
+    "do": "Use the best clear front/street-facing home photo from the customer, Maps, Zillow or another legitimate property view. Check that it is the right property.",
+    "rule": "Clear front roofline",
+    "row": 6
+   },
+   {
+    "step": "2  Choose 1 of 3 prompts",
+    "do": "Whole-property concept, maximum front roofline, or a specific revision. Replace bracketed items like [COLOR] before pasting.",
+    "rule": "No extra prompts needed",
+    "row": 7
+   },
+   {
+    "step": "3  Submit photo + prompt",
+    "do": "Upload the property photo to the image AI and paste the selected template verbatim. If the tool supports marking exact edges, mark them first.",
+    "rule": "Use source photo",
+    "row": 8
+   },
+   {
+    "step": "4  Verify before sending",
+    "do": "Compare original and result. Check roof edges, missing/extra lights, door/window changes, landscaping, bulb spacing, floating lines and unrealistic installation.",
+    "rule": "Reject inaccurate mockups",
+    "row": 9
+   },
+   {
+    "step": "5  Explain to customer",
+    "do": "“Here's a design concept for your home. We’ll verify the actual installation areas and measurements before treating it as the final scope.”",
+    "rule": "Not a measuring tool",
+    "row": 10
+   }
+  ],
+  "prompts": [
+   {
+    "label": "PROMPT 1\nBEST POSSIBLE DESIGN",
+    "text": "Edit the ATTACHED PHOTO of this exact property. Create the most attractive, high-impact, professionally installable Christmas lighting design realistically possible for the visible property. Use commercial-grade C9 LED holiday lights with a fixed [COLOR OR COLOR PATTERN] color scheme and visually even approximately 15-inch spacing on all suitable visible front gutters, front-facing roof peaks, gables, garage roof edges and connecting installable rooflines. Make the light runs neatly custom-cut and spliced to fit: no bulbs hanging beyond roof edges, floating bulbs or sagging lines. Add complementary mini lights on suitable front bushes and trees, and tasteful wreaths or garland ONLY where physically plausible, balanced and consistent with a premium full-property proposal. Do not invent architectural surfaces, unsafe mounting points, new windows, doors, bushes or trees. Change the scene to realistic nighttime with natural LED glow. Preserve the property's exact architecture, landscaping and camera angle. If a feature is unclear or inaccessible, leave it unlit rather than guessing.",
+    "use": "Full-property concept\nShow premium options",
+    "row": 14
+   },
+   {
+    "label": "PROMPT 2\nMAX ROOFLINE ONLY",
+    "text": "Edit the ATTACHED PHOTO of this exact property. Install as MANY fixed [COLOR OR COLOR PATTERN] commercial-grade C9 LED Christmas lights as realistically possible on the VISIBLE, INSTALLABLE FRONT ROOFLINE ONLY. Follow every suitable front gutter, front-facing roof peak, gable, garage roof edge and connecting roofline to create maximum roofline coverage. Use visually even approximately 15-inch spacing. Custom-cut and splice the runs to fit precisely: NO extra bulbs hanging past roof edges, floating bulbs, or sagging lines. DO NOT add lights on siding, around windows or doors, bushes, trees, walkways, pillars, wreaths or garland. Make it nighttime with realistic glow. Preserve every architectural feature, landscaping element and the camera angle exactly as photographed. If a section is unclear or physically inaccessible, leave it out rather than inventing a surface.",
+    "use": "Roofline-only quote\nNo landscaping",
+    "row": 15
+   },
+   {
+    "label": "PROMPT 3\nREVISE EXISTING MOCKUP",
+    "text": "Edit the ATTACHED CHRISTMAS LIGHT MOCKUP of this exact property. Make ONLY the following specific changes: [DESCRIBE EXACT CHANGES, e.g., remove lights from left bushes; add one 24-inch warm-white wreath with red bow over center window; keep roofline lights unchanged]. Follow any user-marked red lines or circles exactly. Preserve every existing light and decoration NOT explicitly mentioned, including current color, spacing, placement and glow. Do not add any new lights or decorations outside the requested changes. Keep the architecture, landscaping, perspective and nighttime lighting exactly the same. Make all remaining light runs neat, correctly attached and realistic. If a requested surface is unclear or physically inaccessible, leave it unchanged instead of inventing one.",
+    "use": "Changes only\nNo redesign",
+    "row": 16
+   }
+  ],
+  "final": "FINAL CHECK  •  Does the AI design match the customer's measured scope, fixed-color selection and the home's actual roofline? If not, correct it before sending."
+ },
+ "flyra": {
+  "sheet": "07 FLYRA SOP",
+  "title": "FLYRA SOP  |  LEAD → CUSTOMER → SUBSCRIPTION",
+  "sub": "This is the Edge Shines internal workflow requested for FLYRA. Use the equivalent current menu labels if the interface changes.",
+  "steps": [
+   {
+    "n": "01",
+    "action": "Open original lead",
+    "detail": "Search by customer name or number; review latest call/text notes; don't create a duplicate.",
+    "result": "Existing record",
+    "row": 6
+   },
+   {
+    "n": "02",
+    "action": "Confirm customer fields",
+    "detail": "Full name, phone, email if available, address including city/ZIP, property notes, source, decision-maker.",
+    "result": "Complete profile",
+    "row": 7
+   },
+   {
+    "n": "03",
+    "action": "Document scope",
+    "detail": "Roofline sections, footage and reliability, C9 colors, add-ons, design image, agreement option and anticipated installation date.",
+    "result": "Ready to quote",
+    "row": 8
+   },
+   {
+    "n": "04",
+    "action": "CLICK: CONVERT TO CUSTOMER",
+    "detail": "When a quote is required, click Convert to Customer on the lead record.",
+    "result": "Customer created",
+    "row": 9
+   },
+   {
+    "n": "05",
+    "action": "CHOOSE: SUBSCRIPTION",
+    "detail": "In the conversion workflow, choose Subscription for the recurring seasonal Christmas lighting service.",
+    "result": "Subscription path",
+    "row": 10
+   },
+   {
+    "n": "06",
+    "action": "Verify conversion",
+    "detail": "Confirm correct customer, property, plan length, season price and subscription details; check for duplicates.",
+    "result": "Correct records",
+    "row": 11
+   },
+   {
+    "n": "07",
+    "action": "Create estimate / quote",
+    "detail": "Line-item approved roofline and add-ons, attach mockup if supported, review price, service inclusions and applicable taxes.",
+    "result": "Draft quote",
+    "row": 12
+   },
+   {
+    "n": "08",
+    "action": "Send + present",
+    "detail": "Send approved quote to customer, explain plan, color, scope, seasonal services and what happens next.",
+    "result": "Quote sent",
+    "row": 13
+   },
+   {
+    "n": "09",
+    "action": "Update lead stage / record",
+    "detail": "Use the appropriate current FLYRA status for design/quote sent or negotiating; record date and quoted amount.",
+    "result": "Trackable stage",
+    "row": 14
+   },
+   {
+    "n": "10",
+    "action": "Set next action",
+    "detail": "Assign named owner, exact next date/time, specific contact method and customer question to answer. Send recap text as needed.",
+    "result": "No unowned opportunity",
+    "row": 15
+   },
+   {
+    "n": "11",
+    "action": "When accepted",
+    "detail": "Send company-approved agreement and deposit request; verify signature/payment before confirming installation.",
+    "result": "Agreement + payment",
+    "row": 16
+   },
+   {
+    "n": "12",
+    "action": "Confirm install booking",
+    "detail": "After prerequisites are met, confirm agreed installation window in the scheduling system and notify customer.",
+    "result": "Reserved installation",
+    "row": 17
+   }
+  ],
+  "notes": [
+   "Address & photos",
+   "Decision-maker",
+   "Fixed color / design areas",
+   "Exact or estimated footage",
+   "Approved price & term",
+   "Objections",
+   "Quote sent",
+   "Next action + owner"
+  ],
+  "pipeline": {
+   "before": "New Lead → Contact Attempted",
+   "during": "Qualified → Design/Estimate Sent → Negotiating",
+   "after": "Won after required approvals/payment; otherwise Lost + reason",
+   "rbefore": "Always log attempt + time",
+   "rduring": "Never leave quote without next action",
+   "rafter": "Don't mark booked without actual date confirmation"
+  }
+ },
+ "texts": {
+  "sheet": "08 TEXT TEMPLATES",
+  "title": "CUSTOMER TEXT TEMPLATES  |  COPY + PERSONALIZE",
+  "sub": "Keep messages short, conversational, and specific. Replace bracketed text. Send through FLYRA so contact history stays in one place.",
+  "items": [
+   {
+    "situation": "New inquiry / missed call",
+    "text": "Hi [NAME]! This is Emily with Edge Shines Christmas Lights. Thanks for reaching out! We provide the lights, custom design, installation, seasonal maintenance, takedown and storage. Do you have about 5–10 minutes today to go over a design for your home?",
+    "when": "Send after initial missed call",
+    "row": 6
+   },
+   {
+    "situation": "Need full property address",
+    "text": "Hi [NAME]! To create an accurate lighting design and estimate, could you send the complete property address, including city and ZIP code? Thank you!",
+    "when": "Before aerial look-up",
+    "row": 7
+   },
+   {
+    "situation": "Budget qualification",
+    "text": "Hi [NAME]! As a starting point, an average seasonal home is around $1,000, depending on the design and amount of lighting. Is there a budget you'd prefer we design around?",
+    "when": "Before design investment",
+    "row": 8
+   },
+   {
+    "situation": "Mockup ready",
+    "text": "Hi [NAME]! We put together a Christmas lighting concept for your home. Take a look and let me know what you love or what you’d like us to adjust. Once we confirm the design, I can walk you through the seasonal price.",
+    "when": "Send with photo",
+    "row": 9
+   },
+   {
+    "situation": "Quote sent",
+    "text": "Hi [NAME]! I just sent your Edge Shines Christmas lighting estimate for [SCOPE]. It includes company-provided lighting, installation, standard maintenance, takedown and storage. Let me know what questions you have, and we can review the next steps together.",
+    "when": "Record sent date",
+    "row": 10
+   },
+   {
+    "situation": "Option to lower budget",
+    "text": "Hi [NAME]! If you’d like, I can revise the design to focus on the front roofline and keep the neat custom-fit look while bringing the price closer to [BUDGET]. Would you like me to try that version?",
+    "when": "Create approved revision",
+    "row": 11
+   },
+   {
+    "situation": "Need another decision-maker",
+    "text": "Hi [NAME]! I sent the design and estimate so you and [OTHER PERSON] can review them together. Would a quick call [DAY/TIME] work to answer questions and make any changes?",
+    "when": "Book a real call",
+    "row": 12
+   },
+   {
+    "situation": "Agreement question",
+    "text": "Hi [NAME]! Our standard multi-year plan lets us custom-fit the materials in year one and handle the seasonal service again in future years. I'm happy to go over the exact term and cancellation language before you decide.",
+    "when": "Do not improvise fee terms",
+    "row": 13
+   },
+   {
+    "situation": "Ready to proceed",
+    "text": "Hi [NAME]! We’d love to decorate your home! The next step is reviewing and signing the agreement and taking care of the required deposit. Once everything is confirmed, we can finalize your installation scheduling.",
+    "when": "Only after customer agrees",
+    "row": 14
+   },
+   {
+    "situation": "Follow-up with specific choice",
+    "text": "Hi [NAME]! Just checking in on your Christmas light design. Would you prefer we keep the current layout at [PRICE] or prepare the simpler [ALTERNATIVE] version? Happy to help either way!",
+    "when": "Set follow-up task",
+    "row": 15
+   },
+   {
+    "situation": "Home not visible in maps",
+    "text": "Hi [NAME]! The street imagery isn't giving us a clear enough view of your roofline to quote accurately. Could you send a straight-on daytime photo of the front of your home? That should help us finish your estimate.",
+    "when": "Don't guess measurement",
+    "row": 16
+   }
+  ],
+  "standards": [
+   "Use the customer's real name",
+   "Confirm exact price and season before sending",
+   "Don't state a date is booked without confirmation",
+   "Record the conversation and specific next action in FLYRA"
+  ]
+ },
+ "measure": {
+  "sheet": "09 MEASURE SOP",
+  "title": "MEASURE EVERY AREA · PHONE ESTIMATING SOP",
+  "sub": "Use this flow during the first call. Match approved scope to real measurements. AI designs are visual only—not measuring tools.",
+  "steps": [
+   {
+    "n": "01",
+    "area": "Start with exact property",
+    "measure": "Confirm street address, town, ZIP; open aerial/street imagery and confirm the right house.",
+    "rule": "Ask whether front only, full roofline, or roofline plus add-ons.",
+    "row": 4
+   },
+   {
+    "n": "02",
+    "area": "ROOFLINE · C9",
+    "measure": "Trace each approved gutter, gable, garage front, dormer and other installable edge in feet. Add segments once only.",
+    "rule": "Satellite lengths may miss sloped rake length; check pitch/second-story access. Flag steep/hidden roof.",
+    "row": 5
+   },
+   {
+    "n": "03",
+    "area": "BUSHES · minis",
+    "measure": "Count individual shrubs; note size, height and desired coverage (front/sides/full wrap). Estimate strands per shrub.",
+    "rule": "Working starting point: ~5 strands per typical bush; actual count varies by size and strand length.",
+    "row": 6
+   },
+   {
+    "n": "04",
+    "area": "TREES · minis",
+    "measure": "Count trees, approx. height, trunk/branch coverage, or canopy wrap; estimate strands by requested coverage.",
+    "rule": "Working starting point: ~10 strands per moderate tree. Large/tall/dense trees require crew review.",
+    "row": 7
+   },
+   {
+    "n": "05",
+    "area": "GROUND STAKES · C9",
+    "measure": "Trace each border run in feet: front walk, left driveway edge, right driveway edge, flowerbed border.",
+    "rule": "Measure both driveway sides separately if requested. Note snowplows, lawn care, obstacles.",
+    "row": 8
+   },
+   {
+    "n": "06",
+    "area": "GREENERY · wreaths",
+    "measure": "Count wreaths and choose diameter (24, 36, 48, 60 in); note lit/unlit, bows, height, attachment and wiring.",
+    "rule": "Quote EACH item by approved size-specific rate; do not use roofline ft pricing.",
+    "row": 9
+   },
+   {
+    "n": "07",
+    "area": "GREENERY · garland",
+    "measure": "Measure the actual linear feet of railing, porch, doorway, arch or columns to be decorated; count wrapped passes.",
+    "rule": "Record lit/unlit, powered/battery, fullness, height. Pricing is owner-approved per item or foot.",
+    "row": 10
+   },
+   {
+    "n": "08",
+    "area": "Check installability",
+    "measure": "Look for steep metal roofs, fragile surfaces, overhead wires, tall peaks, inaccessible gutters and power access.",
+    "rule": "Escalate hard/uncertain install sections before a firm price.",
+    "row": 11
+   },
+   {
+    "n": "09",
+    "area": "Give price on call",
+    "measure": "Use the approved price card and chosen agreement. Roofline + ground-stake ft, plus counted mini strands and greenery items.",
+    "rule": "Give firm quote only when measurements, access and materials are verified; otherwise label preliminary.",
+    "row": 12
+   },
+   {
+    "n": "10",
+    "area": "Present & close",
+    "measure": "Repeat covered areas and total seasonal price, show a matching mockup, and ask to proceed.",
+    "rule": "In FLYRA: Convert to Customer → Subscription → quote; record call notes and next action.",
+    "row": 13
+   }
+  ],
+  "checklist": [
+   "Address matches visible property",
+   "Desired lighting areas confirmed",
+   "Both sides of driveway counted if requested",
+   "Roofline segments not double-counted",
+   "Bush/tree coverage and count noted",
+   "Greenery sizes and wiring recorded",
+   "Difficult access or roofs flagged",
+   "Mockup matches the measured areas",
+   "Chosen term, tax, discounts approved"
+  ],
+  "script": "“I can check your home from aerial imagery while we’re on the phone. I’ll measure just the sections you want, price the roofline and any landscaping separately, and give you the seasonal estimate. If a roof section isn’t clear or safe to verify remotely, I’ll let you know before confirming a final price.”"
+ },
+ "price": {
+  "sheet": "10 PRICE CARD",
+  "title": "LIGHTING RATE CARD · OWNER APPROVAL REQUIRED",
+  "sub": "Previously used Edge Shines rates below are reference prices—not a guarantee. Confirm active season/terms, discounts, inventory and tax before quoting.",
+  "rates": [
+   {
+    "term": "2-year",
+    "roof": 10,
+    "mini": 50,
+    "stake": 7,
+    "row": 4
+   },
+   {
+    "term": "3-year",
+    "roof": 8,
+    "mini": 50,
+    "stake": 7,
+    "row": 5
+   },
+   {
+    "term": "4-year",
+    "roof": 7,
+    "mini": 50,
+    "stake": 6,
+    "row": 6
+   }
+  ],
+  "components": [
+   {
+    "comp": "ROOFLINE C9",
+    "qty": "Approved installable roofline feet",
+    "how": "Total feet × approved agreement roofline rate",
+    "example": "120 ft × $8 = $960 (3-year reference)",
+    "row": 10
+   },
+   {
+    "comp": "BUSHES · MINI LIGHTS",
+    "qty": "Count bushes × strands needed per bush",
+    "how": "Total approved mini strands × $50",
+    "example": "3 bushes × 5 strands × $50 = $750",
+    "row": 11
+   },
+   {
+    "comp": "TREES · MINI LIGHTS",
+    "qty": "Count trees × strands needed per tree",
+    "how": "Total approved mini strands × $50",
+    "example": "1 tree × 10 strands × $50 = $500",
+    "row": 12
+   },
+   {
+    "comp": "GROUND STAKES",
+    "qty": "Linear feet of each requested walkway/driveway border",
+    "how": "Total stake footage × agreement ground-stake rate",
+    "example": "60 ft × $7 = $420 (3-year reference)",
+    "row": 13
+   },
+   {
+    "comp": "WREATHS · GREENERY",
+    "qty": "Count by size: 24, 36, 48, 60 in and any bows",
+    "how": "Approved per-wreath price × quantity",
+    "example": "Historical 36-in reference $225; CURRENT RATE UNCONFIRMED",
+    "row": 14
+   },
+   {
+    "comp": "GARLAND · GREENERY",
+    "qty": "Total actual linear ft OR number of approved sections",
+    "how": "Current approved garland rate by foot/section × measured quantity",
+    "example": "NO APPROVED RATE ON FILE — manager sets price",
+    "row": 15
+   },
+   {
+    "comp": "OTHER LABOR / ACCESS",
+    "qty": "Difficult peaks, high trees, special mounting, outlets",
+    "how": "Only company-approved surcharge, separately disclosed",
+    "example": "Never improvise labor charges or assert specific mounting method",
+    "row": 16
+   }
+  ],
+  "example": {
+   "label": "3-year reference job",
+   "scope": "120 ft roofline + 3 bushes @ 5 strands + 60 ft stakes",
+   "calc": "$960 + $750 + $420",
+   "total": "$2,130 before tax/approved changes"
+  },
+  "scoping": [
+   {
+    "n": "01",
+    "q": "“Do you want only the front roofline or all accessible rooflines?”",
+    "row": 22
+   },
+   {
+    "n": "02",
+    "q": "“How many individual bushes or trees should we wrap, and how full?”",
+    "row": 23
+   },
+   {
+    "n": "03",
+    "q": "“Would you like stakes on one or both sides of the driveway or walkway?”",
+    "row": 24
+   },
+   {
+    "n": "04",
+    "q": "“Any wreaths or garland? What sizes and which locations?”",
+    "row": 25
+   },
+   {
+    "n": "05",
+    "q": "“Which agreement option and fixed C9 color would you like?”",
+    "row": 26
+   }
+  ],
+  "safety": [
+   "Do not price trees/bushes by roofline feet; use verified strand quantities.",
+   "Do not promise exact garland/wreath pricing without approved rate.",
+   "AI mockups do not give reliable footage.",
+   "High roof, hidden slope, metal/aluminum attachment, and tall trees require review.",
+   "Material counts are estimates until checked.",
+   "Agreement and 40% cancellation depend on signed terms."
+  ]
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "retrieved": "2026-11-15",
+ "org": "Edge Shines",
+ "company": {
+  "name": "Edge Shines Home Services",
+  "legal": "Edge Shines LLC",
+  "address": "20 Vascello Rd, New Windsor, NY 12553",
+  "phone": "845-542-7255",
+  "source": "FLYRA subscription template terms (company header)"
+ },
+ "services": [
+  {
+   "key": "roof",
+   "name": "Holiday Lights",
+   "price": 6,
+   "unit": "linear ft",
+   "description": "Professional Holiday lights - Bring your home to life this holiday season with professional Christmas light installation from Edge Shines Home Services. We handle everything from custom design and installation to maintenance throughout the season, ensuring your display looks its best from start to finish. If a bulb goes out or something comes loose, we'll take care of it. After the holidays, we'll return to safely remove the lights and carefully package them for storage until next season. Whether you're looking for a simple, elegant display or a bold, eye-catching design, we'll create a festive look that makes your home stand out without the hassle."
+  },
+  {
+   "key": "mini",
+   "name": "Mini Lights",
+   "price": 30,
+   "unit": "each",
+   "description": "Professional installation of commercial-grade mini lights on trees, shrubs, bushes, railings, or other approved areas. Includes lights, installation, maintenance throughout the season, removal, and storage."
+  },
+  {
+   "key": "stake",
+   "name": "Ground Stake Lighting",
+   "price": 5,
+   "unit": "linear ft",
+   "description": "Ground Stake Lighting Professional C9 ground lighting installed along walkways, driveways, garden beds, and landscaping. Includes commercial-grade lights, stakes, custom-cut wiring, installation, in-season maintenance, removal, and storage."
+  },
+  {
+   "key": "garland",
+   "name": "Lit Garland",
+   "price": 100,
+   "unit": "each",
+   "description": "Professional installation of premium artificial Christmas garland featuring warm white LED mini lights. Perfect for decorating railings, columns, entryways, porch areas, and other exterior features. Includes custom fitting, secure installation, electrical connections, timer integration, in-season maintenance, removal, and storage"
+  },
+  {
+   "key": "w24",
+   "name": "24 inch Lit Wreath",
+   "price": 120,
+   "unit": "each",
+   "description": "Professional installation of a 24-inch illuminated Christmas wreath featuring warm white LED lights. Includes secure mounting, battery overrated connections, timer integration, in-season maintenance, removal, and storage. All materials are provided and remain the property of Edge Shines Home Services."
+  },
+  {
+   "key": "w36",
+   "name": "36 inch Lit Wreath",
+   "price": 225,
+   "unit": "each",
+   "description": "Professional installation of a 36-inch illuminated Christmas wreath featuring warm white LED lights. Ideal for larger entryways, garages, and exterior walls. Includes secure mounting, electrical connections, timer integration, in-season maintenance, removal, and storage. All materials remain the property of Edge Shines Home Services."
+  },
+  {
+   "key": "w48",
+   "name": "48 inch Lit Wreath",
+   "price": 250,
+   "unit": "each",
+   "description": "Professional installation of a 48-inch premium illuminated Christmas wreath featuring warm white LED lights. Designed to create an elegant holiday display on large homes, entryways, and prominent exterior features. Includes secure mounting, electrical connections, timer integration, in-season maintenance, removal, and storage. All materials remain the property of Edge Shines Home Services."
+  },
+  {
+   "key": "w60",
+   "name": "60 Inch Lit Wreath",
+   "price": 500,
+   "unit": "each",
+   "description": "Premium 60-inch commercial-grade holiday wreath featuring warm white LED mini lights and a decorative red bow. Includes professional installation, secure mounting, timer setup, in-season maintenance, removal, and seasonal storage. All materials remain the property of Edge Shines Home Services."
+  }
+ ],
+ "plan": {
+  "name": "Annual Holiday Light Service Plan - 3 Years",
+  "termMonths": 36,
+  "lines": [
+   {
+    "title": "Holiday Lights",
+    "price": 6
+   },
+   {
+    "title": "Mini Lights",
+    "price": 30
+   },
+   {
+    "title": "Ground Stake Lighting",
+    "price": 6
+   }
+  ],
+  "taxes": [
+   {
+    "name": "Sales Tax",
+    "rate": 8.375
+   },
+   {
+    "name": "Credit card processing fee",
+    "rate": 3.4
+   }
+  ],
+  "terms": "AGREEMENT TERM: This agreement covers three consecutive holiday seasons. By signing or electronically accepting this agreement, the Customer agrees to the full three-year term.\n\nDECORATIONS & WORK: Wreaths, garland, specialty decorations, difficult-access areas, tall rooflines, and other additional work are not included in the standard per-foot or per-strand pricing unless specifically listed on the approved estimate.\n\nPAYMENT: A 50% payment is required to reserve installation each season. The remaining balance is due upon completion of the installation.\n\nWHAT YOUR SEASONAL PRICE INCLUDES: Seasonal pricing includes professional installation, company-provided lighting and standard materials, timer setup, in-season maintenance, removal, and storage.\n\nOWNERSHIP OF MATERIALS: All company-provided lights, cords, clips, timers, and decorations remain the property of Edge Shines Home Services. The Customer may not remove, relocate, modify, or allow another company or individual to handle company-owned materials without permission.\n\nCOLOR & DESIGN: The approved lighting colors and design are locked in for all three seasons. If the Customer requests a change to the color or color pattern, updated pricing may apply and a new three-year agreement will begin.\n\nSCHEDULING: Installation, maintenance, and removal dates are subject to weather, safety conditions, property access, and seasonal scheduling. Exact dates are not guaranteed unless specifically agreed to in writing.\n\nCUSTOMER RESPONSIBILITIES: The Customer is responsible for providing safe and reasonable access to the property, functioning GFCI-protected outdoor outlets, and any required HOA, landlord, or property-owner approvals.\n\nPROPERTY CONDITIONS: Edge Shines Home Services is not responsible for pre-existing, concealed, loose, deteriorated, brittle, improperly installed, or defective components of the property.\n\nCANCELLATION / EARLY TERMINATION: Edge Shines Home Services does not charge a cancellation or early-termination fee. If the Customer chooses to cancel the agreement early, after any cancellation period required by applicable law, the Customer will only be responsible for the material costs associated with the job, calculated as 40% of the total contracted job price for that year. Any services already completed must be paid in full.\n\nCANCELLATION PERIOD: The Customer may cancel within three business days after signing when required by applicable law. The early-termination provision does not apply during a legally required cancellation period or if Edge Shines Home Services materially breaches the agreement.\n\nAUTOMATIC RENEWAL: After the initial three-year term, the agreement automatically renews for additional three-year terms unless the Customer cancels at least 30 days before the end of the current term. Edge Shines Home Services will provide any renewal notices, pricing information, cancellation deadlines, and cancellation instructions required by applicable law.\n\nRENEWAL PRICING: Renewal will remain at the existing price unless the Customer affirmatively agrees to a price increase where required by applicable law.\n\nACCEPTANCE: By signing or electronically accepting this agreement, the Customer acknowledges and agrees to the three-year commitment, pricing, payment schedule, ownership of materials, color and design requirements, automatic renewal provisions, and cancellation terms.",
+  "guarantees": "IN-SEASON MAINTENANCE GUARANTEE: Maintenance of company-provided lighting is included at no additional charge throughout the holiday season.\n\nLIGHT REPLACEMENT GUARANTEE: If a company-provided bulb, strand, connection, or other covered lighting component fails under normal use, Edge Shines Home Services will repair or replace the affected component at no additional charge.\n\nPROFESSIONAL INSTALLATION GUARANTEE: Your lighting will be professionally installed using appropriate materials and installation methods for the approved design, subject to safe access and the condition of the property.\n\nREMOVAL & STORAGE GUARANTEE: At the end of each holiday season, Edge Shines Home Services will remove and store the company-owned lighting and standard materials included in your agreement for the following season.\n\nDESIGN CONSISTENCY GUARANTEE: Your approved lighting colors and design will remain consistent throughout the three-year agreement unless you request and approve a change."
+ },
+ "leadSources": [
+  "D2D",
+  "EDDM",
+  "Google LSA",
+  "Meta Ads",
+  "Referral",
+  "Website",
+  "Yard Sign"
+ ]
+}

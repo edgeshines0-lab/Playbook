@@ -1,0 +1,8 @@
+{
+  "name": "edge-shines-sales-studio",
+  "private": true,
+  "version": "2.0.0",
+  "description": "Edge Shines Holiday Lighting Sales Studio (single-file React artifact)",
+  "scripts": { "build": "node build.mjs" },
+  "devDependencies": { "esbuild": "0.23.1" }
+}
