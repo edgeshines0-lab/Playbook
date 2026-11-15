@@ -10,10 +10,11 @@
   <button class="brand" data-view="home" aria-label="Edge Shines home"><b>EDGE SHINES<i>.</i></b><span>Sales assistant</span></button>
   <form class="search" id="qform" role="search" autocomplete="off">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-    <input id="q" type="search" placeholder="Ask anything: “customer doesn’t want a 3-year agreement”" aria-label="Search the whole sales playbook">
+    <input id="q" type="search" enterkeyhint="search" placeholder="Ask anything: “customer doesn’t want a 3-year agreement”" aria-label="Search the whole sales playbook" aria-controls="sugg">
     <kbd id="qkbd">/</kbd><button type="button" class="clear" id="qclear" data-clear hidden>Clear</button>
+    <div class="sugg" id="sugg" hidden></div>
   </form>
-  <label class="rep">Your name in scripts<input id="rep" placeholder="Emily (default)" autocomplete="off"></label>
+  <label class="rep">Your name in scripts<input id="rep" data-rep autocomplete="off" placeholder="Emily (default)"></label>
 </header>
 <div class="shell">
   <nav class="side" aria-label="Sections">
@@ -28,8 +29,12 @@
     <button class="nav" data-view="texts">Text templates</button>
     <span class="grp">Reference</span>
     <button class="nav" data-view="facts">Service facts</button>
+    <button class="nav" data-view="playbook">Full playbook</button>
     <button class="nav" data-view="review">Items to review</button>
-    <label class="repm">Your name in scripts<input id="rep2" placeholder="Emily (default)" autocomplete="off"></label>
+    <div class="prefs stack">
+      <div class="fills rep-side"><label>Your name in scripts<input id="rep2" data-rep autocomplete="off" placeholder="Emily (default)"></label></div>
+      <div class="stack" style="gap:6px"><span class="secl">Text size</span><div class="termseg sm" role="group" aria-label="Text size"><button type="button" data-size="std" aria-pressed="true">Standard</button><button type="button" data-size="lg" aria-pressed="false">Large</button></div></div>
+    </div>
   </nav>
   <main id="main" tabindex="-1"></main>
 </div>

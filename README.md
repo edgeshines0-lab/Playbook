@@ -6,6 +6,14 @@ Interactive phone-sales assistant built from the Edge Shines sales playbook work
 - `extract.py` — pulls every worksheet's content, word for word, into structured data.
 - `src/` — page shell, styles and app logic.
 
+Sections: search, 12-step call flow, objections, estimator, AI mockup prompts, FLYRA quoting,
+text templates, service facts, the full playbook (every tab, expandable) and items to review.
+
+Optional runtime features (the page works without them):
+- **Ask Claude** (`sample` capability): Claude picks matching playbook entries for an unusual
+  question; the page only ever shows the playbook's own wording. Runs on the viewer's Claude account.
+- **Rep name** (`user` capability): scripts use the viewer's first name instead of "Emily".
+
 Rebuild after the playbook changes:
 
 ```
