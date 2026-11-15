@@ -14,10 +14,15 @@ Optional runtime features (the page works without them):
   question; the page only ever shows the playbook's own wording. Runs on the viewer's Claude account.
 - **Rep name** (`user` capability): scripts use the viewer's first name instead of "Emily".
 
+Pricing: every build applies `pricing2026.py`, the 2026 policy: **3-year agreement only**,
+roofline $6/ft, ground stakes $6/ft, mini lights $30/strand. The workbook's older 2-/4-year rate rows
+are replaced so they can never come back on a rebuild.
+
 Rebuild after the playbook changes:
 
 ```
 python3 -I build.py path/to/Edge_Shines_Sales_Playbook.xlsx
+python3 -I build.py --from-html        # rebuild from the data already in the page (no workbook needed)
 ```
 
 The extractor reads fixed cell ranges per tab, so if rows are added or moved in the workbook, update `extract.py` to match.

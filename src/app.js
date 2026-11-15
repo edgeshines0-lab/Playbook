@@ -189,7 +189,7 @@
      REVIEW FLAGS: things the workbook leaves missing, unclear or unconfirmed
      ====================================================================== */
   const FLAGS = [
-    ['Needs confirmation', 'Rate card is reference pricing only', 'Both rate tables say the rates are previous reference prices that the owner must confirm for the current season. 03 FAST QUOTES also says “This is NOT an automatic price calculator.” The estimator uses these reference rates and labels every total as an estimate until confirmed.', '03 FAST QUOTES · Rows 2, 15, 20; 10 PRICE CARD · Rows 1–2'],
+    ['Update the workbook', '2026 rates and 3-year-only agreement', 'Edge Shines sells only the 3-year agreement at $6/ft roofline, $6/ft ground stakes and $30 per mini-light strand. The workbook rate tables still hold retired terms and rates; the assistant replaces them on every build (pricing2026.py). Update tabs 03 and 10 in the workbook so the two match.', '03 FAST QUOTES · Rows 17–20; 10 PRICE CARD · Rows 4–6'],
     ['Missing rate', 'Wreath pricing', 'Only a historical $225 reference for a 36-in wreath, marked “CURRENT RATE UNCONFIRMED.” No rates for 24, 48 or 60-in wreaths or for bows. The estimator leaves wreaths out of the total until a manager-approved rate is entered.', '10 PRICE CARD · Row 14'],
     ['Missing rate', 'Garland pricing', '“NO APPROVED RATE ON FILE — manager sets price.” Garland stays out of totals until a manager-approved rate is entered.', '10 PRICE CARD · Row 15'],
     ['Missing rate', 'Labor / access surcharges', 'Difficult peaks, high trees, special mounting and outlets can carry an “only company-approved surcharge,” but no amounts are listed.', '10 PRICE CARD · Row 16'],
@@ -199,9 +199,7 @@
     ['Unclear wording', 'Deposit', '03 FAST QUOTES says the deposit is “usually 50%”; 04 SERVICE FACTS and 05 OBJECTIONS say the standard program “uses a 50% deposit,” with the balance “generally due upon completed installation.” Confirm whether 50% is fixed.', '03 FAST QUOTES · Row 28; 04 SERVICE FACTS · Row 24; 05 OBJECTIONS · Row 38'],
     ['Unclear wording', 'Early cancellation fee', 'The fee is 40% of that year’s seasonal bill. 04 SERVICE FACTS phrases it as “Your typical policy uses…”, which reads like a draft note. Promotional exceptions are mentioned but not listed.', '04 SERVICE FACTS · Row 27; 05 OBJECTIONS · Rows 12, 37'],
     ['Missing policy', 'Agreement wording', 'Reps are told to use “the exact estimate and agreement language approved by Edge Shines” and to offer “the specific cancellation section” for review, but the agreement text itself is not in the workbook.', '02 CALL SCRIPT · Row 2; 05 OBJECTIONS · Row 12'],
-    ['Missing policy', 'One-year or one-time option', 'Reps are told to “review whether a shorter option or one-time custom quote is currently approved.” There is no policy or rate for it.', '05 OBJECTIONS · Row 13'],
-    ['Needs confirmation', 'Availability of 2- and 4-year terms', '04 SERVICE FACTS says 2- and 4-year options “may be available at approved pricing,” while the rate card lists rates for both.', '04 SERVICE FACTS · Row 25; 10 PRICE CARD · Rows 4–6'],
-    ['Needs confirmation', 'Mini-light strands', '$50 per strand for every term. Strand length is not stated. ~5 strands per bush and ~10 per tree are “working starting points,” not rules.', '09 MEASURE SOP · Rows 6–7; 10 PRICE CARD · Rows 4–6'],
+    ['Needs confirmation', 'Mini-light strands', '$30 per strand. Strand length is not stated. ~5 strands per bush and ~10 per tree are “working starting points,” not rules.', '09 MEASURE SOP · Rows 6–7; 10 PRICE CARD · Row 5'],
     ['Missing policy', 'Sloped rake length', 'Satellite lengths “may miss sloped rake length,” but no adjustment method or factor is given.', '09 MEASURE SOP · Row 5'],
     ['Needs confirmation', 'Available colors', 'Only “not black or gray” is documented. There is no list of stocked C9 colors or patterns.', '04 SERVICE FACTS · Row 8; 05 OBJECTIONS · Row 19'],
     ['Needs confirmation', 'Measuring tool', 'The company’s chosen tool is not named. Examples given: Measured Bid, LightQuoter, or Google Earth tracing.', '03 FAST QUOTES · Row 8'],
@@ -214,14 +212,14 @@
      ESTIMATOR MODEL
      ====================================================================== */
   const EST_BASE = () => ({ term: '3-year', roof: [], bush: [], tree: [], stake: [], wreath: [], garland: [], labor: [], flags: {}, checks: {}, mchecks: {}, verify: {}, lo: '', hi: '', example: false });
-  const EST_DEFAULT = () => Object.assign(EST_BASE(), { roof: [{ label: 'Front roofline', ft: 120 }], bush: [{ label: 'Front bushes', count: 3, per: 5 }], stake: [{ label: 'Front walk', ft: 60 }], example: true });
+  const EST_DEFAULT = () => Object.assign(EST_BASE(), { roof: [{ label: 'Front roofline', ft: 150 }], bush: [{ label: 'Front bushes', count: 4, per: 5 }], stake: [{ label: 'Front walk', ft: 100 }], example: true });
   const EST_EMPTY = () => Object.assign(EST_BASE(), { roof: [{ label: 'Front roofline', ft: '' }] });
   function estNorm(s) {
     if (!s || typeof s !== 'object') return EST_DEFAULT();
     const o = Object.assign(EST_BASE(), s);
     ['roof', 'bush', 'tree', 'stake', 'wreath', 'garland', 'labor'].forEach(k => { o[k] = Array.isArray(o[k]) ? o[k].filter(x => x && typeof x === 'object') : []; });
     ['flags', 'checks', 'mchecks', 'verify'].forEach(k => { if (!o[k] || typeof o[k] !== 'object' || Array.isArray(o[k])) o[k] = {}; });
-    if (!rateFor(o.term)) o.term = '3-year';
+    o.term = '3-year'; // the only agreement offered
     return o;
   }
   let est = estNorm(store.get('est', null));
@@ -234,8 +232,8 @@
     ['image', 'Imagery unclear or roof not fully visible', src('fast', 29)]
   ];
   const VERIFY = [['meas', 'Measurements verified'], ['access', 'Access verified'], ['mat', 'Materials verified']];
-  function estCalc(e, term) {
-    const r = rateFor(term || e.term), lines = [], missing = [];
+  function estCalc(e) {
+    const r = rateFor('3-year'), lines = [], missing = [];
     const roofFt = e.roof.reduce((s, x) => s + num(x.ft), 0);
     if (roofFt) lines.push([`Roofline C9: ${roofFt} ft × $${r.roof}`, roofFt * r.roof]);
     const bs = e.bush.reduce((s, x) => s + num(x.count) * num(x.per), 0);
@@ -370,7 +368,7 @@
   D.script.lines.forEach(s => add({ type: 'Script', title: s.when, main: s.say, fields: [['Action / listen for', s.action]], src: src('script', s.row, 'Open • Qualify • Design • Close'), go: { view: 'flow', id: 'script-' + s.row } }));
   add({ type: 'Rule', title: 'Never promise these without checking', main: D.script.never.join(' • '), src: src('script', 25), go: { view: 'flow', step: 10, id: 'never' }, kw: 'guarantee promise' });
   D.fast.routine.forEach(s => add({ type: 'Quoting routine', title: `${s.n}. ${s.action}`, main: s.how, fields: [['When to stop', s.stop]], src: src('fast', s.row, 'The 8-minute remote quoting routine'), go: { view: 'playbook', id: 'pb-fast-' + s.row } }));
-  add({ type: 'Pricing', title: 'Pricing reference by agreement term', main: D.fast.rates.map(r => `${r.term}: Roofline C9 ${r.roof}; Mini light strand ${r.mini}; Ground stakes ${r.stake}`).join(' • '), fields: [['Note', D.fast.rateNote]], src: src('fast', 17, 'Pricing reference · owner must confirm current season'), go: { view: 'playbook', id: 'pb-fast-17' }, kw: 'per foot linear rate card roofline mini stake 2 3 4 year' });
+  add({ type: 'Pricing', title: '2026 pricing · 3-year agreement', main: D.fast.rates.map(r => `${r.term} agreement: Roofline C9 ${r.roof}; Mini light strand ${r.mini}; Ground stakes ${r.stake}`).join(' • '), fields: [['Note', D.fast.rateNote]], src: src('fast', 17, '2026 rate card'), go: { view: 'playbook', id: 'pb-fast-17' }, kw: 'per foot linear rate card roofline mini stake 3 year agreement term length' });
   D.fast.checkpoint.forEach(s => add({ type: 'Quote checkpoint', title: s.verify, main: s.why, fields: [['Seller action', s.action]], src: src('fast', s.row, 'Quote checkpoint · before saying a final total'), go: { view: 'estimate', id: 'ckl-' + s.row } }));
   add({ type: 'Script', title: 'What to say if you can’t verify the roof on the call', main: unq(D.fast.cantVerify), src: src('fast', 32), go: { view: 'flow', id: 'fast-32' }, kw: 'range unsure uncertain preliminary unclear' });
   D.facts.items.forEach(s => add({ type: 'Service fact', title: s.topic, main: s.say, fields: [['Check / limitation', s.check]], src: src('facts', s.row, 'Lights, colors, installation'), go: { view: 'facts', id: 'fact-' + s.row } }));
@@ -386,7 +384,7 @@
   D.measure.steps.forEach(s => add({ type: 'Measuring', title: `${s.n} ${s.area}`, main: s.measure, fields: [['Quick rule / escalate', s.rule]], src: src('measure', s.row, 'Phone estimating SOP'), go: { view: 'flow', id: 'measure-' + s.row } }));
   add({ type: 'Measuring', title: 'Photo / measurement checklist', main: D.measure.checklist.join(' • '), src: src('measure', 16), go: { view: 'playbook', id: 'pb-measure-16' } });
   add({ type: 'Script', title: 'What to say about measuring', main: unq(D.measure.script), src: src('measure', 21), go: { view: 'flow', id: 'measure-21' } });
-  add({ type: 'Pricing', title: 'Lighting rate card (per agreement)', main: D.price.rates.map(r => `${r.term}: Roofline C9 $${r.roof}/ft • Mini lights $${r.mini}/strand • Ground stakes $${r.stake}/ft`).join('  |  '), fields: [['Status', D.price.sub]], src: src('price', 3, 'Lighting rate card'), go: { view: 'estimate', id: 'rates' }, kw: 'per foot linear rate card price roofline mini stake 2 3 4 year', boost: 1.1 });
+  add({ type: 'Pricing', title: 'Lighting rate card · 3-year agreement', main: D.price.rates.map(r => `${r.term} agreement: Roofline C9 $${r.roof}/ft • Mini lights $${r.mini}/strand • Ground stakes $${r.stake}/ft`).join('  |  '), fields: [['Status', D.price.sub]], src: src('price', 3, 'Lighting rate card'), go: { view: 'estimate', id: 'rates' }, kw: 'per foot linear rate card price roofline mini stake 3 year agreement term length', boost: 1.1 });
   D.price.components.forEach(s => add({ type: 'Pricing', title: s.comp, main: s.how, fields: [['Measure', s.qty], ['Example / check', s.example]], src: src('price', s.row, 'Measure & price each component'), go: { view: 'playbook', id: 'pb-price-' + s.row } }));
   add({ type: 'Pricing', title: 'Example: ' + D.price.example.label, main: `${D.price.example.scope} = ${D.price.example.calc} = ${D.price.example.total}`, src: src('price', 19, 'Shorthand calculation · example only'), go: { view: 'playbook', id: 'pb-price-19' } });
   D.price.scoping.forEach(s => add({ type: 'Script', title: 'Scoping question ' + s.n, main: unq(s.q), src: src('price', s.row, 'Fast scoping questions'), go: { view: 'flow', id: 'price-' + s.row } }));
@@ -572,7 +570,7 @@
 
   /* ---------- Home ---------- */
   function vHome() {
-    const r2 = rateFor('2-year'), r3 = rateFor('3-year'), r4 = rateFor('4-year');
+    const r3 = rateFor('3-year');
     const tile = (l, v, d, s, pill) => `<div class="tile"><span class="l">${esc(l)}</span><span class="v">${v}</span><span class="d">${d}</span><span class="row">${pill || ''}<span class="src">${s}</span></span></div>`;
     const confirm = '<span class="pill warn">Confirm</span>';
     const inProgress = flowStep > 0 || flowDone.length;
@@ -588,9 +586,10 @@
     <section class="panel"><h3>Common questions</h3><div class="row">${SUGGEST.map(s => `<button class="chip" data-q="${esc(s)}">${esc(s)}</button>`).join('')}</div></section>
     <section class="stack"><div class="secl">Key numbers</div><div class="tiles">
       ${tile('Typical home', '~$1,000', 'per season. A general expectation, not a quote', src('facts', 29), '')}
-      ${tile('Roofline C9', `$${r2.roof} · $${r3.roof} · $${r4.roof}`, 'per linear ft on 2 · 3 · 4-year terms', src('price', 4), confirm)}
-      ${tile('Mini lights', `$${r3.mini}`, 'per strand, all terms', src('price', 4), confirm)}
-      ${tile('Ground stakes', `$${r2.stake} · $${r3.stake} · $${r4.stake}`, 'per linear ft on 2 · 3 · 4-year terms', src('price', 4), confirm)}
+      ${tile('Agreement', '3 years', 'the only agreement offered; billed one season at a time', src('facts', 25), '')}
+      ${tile('Roofline C9', `$${r3.roof}`, 'per linear ft', src('price', 5), '')}
+      ${tile('Ground stakes', `$${r3.stake}`, 'per linear ft', src('price', 5), '')}
+      ${tile('Mini lights', `$${r3.mini}`, 'per strand (bushes & trees)', src('price', 5), '')}
       ${tile('Deposit', '50%', 'standard; balance generally due on completed install', src('facts', 24), confirm)}
       ${tile('Early cancellation', '40%', 'of that year’s seasonal bill; signed terms control', src('facts', 27), confirm)}
       ${tile('Bulb spacing', '~15 in', 'typical roofline unless the design says otherwise', src('facts', 12), '')}
@@ -636,7 +635,7 @@
     if (!c.total) return `<section class="panel"><h3>Current estimate</h3><p class="muted">Nothing priced yet.</p><div class="row"><button class="btn primary" data-go="estimate">Open the estimator →</button></div></section>`;
     return `<section class="panel"><h3>Current estimate <span class="small muted">from the estimator${est.example ? ' · example data' : ''}</span></h3>
       <div class="row" style="justify-content:space-between"><span class="bignum">${money(c.total)}</span>${st.firm ? '<span class="pill ok">Ready for firm quote</span>' : '<span class="pill bad">Preliminary</span>'}</div>
-      <span class="small muted">${esc(est.term)} agreement · deposit ${money(c.total * 0.5)} (standard 50%) · before tax</span>
+      <span class="small muted">per season · 3-year agreement · deposit ${money(c.total * 0.5)} (standard 50%) · balance ${money(c.total * 0.5)} · before tax</span>
       <div class="row">${copyBtn(() => st.firm ? firmSay(c.total) : prelimSay(), st.firm ? 'Copy price script' : 'Copy preliminary script')}<button class="btn sm" data-go="estimate">Open estimator →</button></div></section>`;
   }
   function vFlow() {
@@ -706,7 +705,7 @@
   const ln = (kind, i, cells, delKind) => `<div class="ln ${kind}">${cells}<button type="button" class="x" data-del="${delKind || kind}.${i}" aria-label="Remove line">×</button></div>`;
   const inp = (path, val, ph, type) => `<input id="e-${path.replace(/\./g, '-')}" data-est="${path}" ${type === 'n' ? 'type="number" inputmode="decimal" min="0" step="any"' : 'type="text"'} value="${esc(val == null ? '' : val)}" placeholder="${esc(ph || '')}" aria-label="${esc(ph || path)}">`;
   function vEst() {
-    const r = rateFor(est.term), comp = row => by(D.price.components, row);
+    const r = rateFor('3-year'), comp = row => by(D.price.components, row);
     const tool = (title, rateTxt, srcHtml, hdr, rows, addBtn, note, subId) => `<section class="tool"><div class="th"><h3>${title}</h3><span class="rate">${rateTxt}</span></div>
       ${hdr}<div class="lines">${rows || '<span class="small muted">No lines yet.</span>'}</div>
       <div class="row">${addBtn}</div>${note ? `<div class="small muted">${note}</div>` : ''}
@@ -722,11 +721,10 @@
     const garRows = est.garland.map((x, i) => ln('garland', i, inp(`garland.${i}.label`, x.label, 'Location') + inp(`garland.${i}.qty`, x.qty, 'Qty', 'n') + `<select id="e-garland-${i}-unit" data-est="garland.${i}.unit" aria-label="Unit"><option value="ft" ${x.unit !== 'section' ? 'selected' : ''}>ft</option><option value="section" ${x.unit === 'section' ? 'selected' : ''}>sections</option></select>` + inp(`garland.${i}.rate`, x.rate, '$ rate', 'n'))).join('');
     const laborRows = est.labor.map((x, i) => ln('labor', i, inp(`labor.${i}.label`, x.label, 'Approved surcharge reason') + inp(`labor.${i}.amt`, x.amt, '$ amount', 'n'))).join('');
     return `<div class="vhead"><div><div class="eyebrow">Measuring &amp; pricing</div><h1>Estimate while the customer is on the phone</h1>
-      <p>Enter verified measurements. Rates come from the playbook rate card and are <b>reference prices the owner must confirm</b> for the current season.</p></div>
+      <p>Enter verified measurements. Prices use the 2026 rate card for the <b>3-year agreement</b>: roofline $6/ft, ground stakes $6/ft, mini lights $30/strand.</p></div>
       <div class="row"><button type="button" class="btn" data-estex>Load reference example</button><button type="button" class="btn" data-estclear>Clear for new customer</button></div></div>
       ${est.example ? `<div class="rule"><span class="ic">i</span><div>Example loaded: the ${esc(D.price.example.label)} from the price card (${esc(D.price.example.scope)} = ${esc(D.price.example.total)}). Clear it before quoting a real customer.<div class="src">${src('price', 19)}</div></div></div>` : ''}
-      <div class="row" id="rates"><span class="secl">Agreement length</span><div class="termseg" role="group" aria-label="Agreement length">${D.price.rates.map(x => `<button type="button" data-term="${esc(x.term)}" aria-pressed="${x.term === est.term}">${esc(x.term)}</button>`).join('')}</div>
-        <span class="pill warn">Reference rates · owner must confirm</span><span class="src">${src('price', r.row, 'Lighting rate card')}</span></div>
+      <div class="row" id="rates"><span class="secl">Agreement</span><span class="pill ok">3-Year Christmas Lighting Agreement</span><span class="pill info">2026 rates</span><span class="src">${src('price', r.row, 'Lighting rate card')}</span></div>
       ${ruleRow(D.fast.rateNote, src('fast', 20, 'Pricing reference'))}
       <div class="est"><div class="stack">
         <div class="tools">
@@ -774,9 +772,10 @@
     const subs = { roof: sub('roof', c.roofFt, 'ft', c.r.roof), bush: sub('bush', c.bs, 'strands', c.r.mini), tree: sub('tree', c.ts, 'strands', c.r.mini), stake: sub('stake', c.sf, 'ft', c.r.stake), wreath: subMan('wreath'), garland: subMan('garland'), labor: subMan('labor') };
     Object.entries(subs).forEach(([k, h]) => { const el = $('#sub-' + k); if (el) el.innerHTML = h; });
     const dep = c.total * 0.5;
-    sumEl.innerHTML = `<div class="tot"><span class="lbl">Estimated seasonal total · ${esc(est.term)}</span><span class="big">${money(c.total)}</span>
+    sumEl.innerHTML = `<div class="tot"><span class="lbl">Estimated seasonal total · 3-year agreement</span><span class="big">${money(c.total)}</span>
         <span class="small note">Before tax and approved changes. Tax rules are not in the playbook.</span>
-        <div class="dep"><span>Deposit (standard 50%)</span><b>${money(dep)}</b><span>Balance, generally due on completed install</span><b>${money(c.total - dep)}</b></div></div>
+        <div class="dep"><span>Deposit (standard 50%)</span><b>${money(dep)}</b><span>Remaining seasonal balance, due on completed install</span><b>${money(c.total - dep)}</b></div>
+        <span class="small note">3-year agreement: ${money(c.total)} per season × 3 seasons = ${money(c.total * 3)}, assuming the same scope and annual price. Billed one season at a time, never upfront.</span></div>
       <section class="panel">${st.firm ? '<span class="pill ok">Ready for firm quote</span>' : '<span class="pill bad">Preliminary. Don’t call this a firm price</span>'}
         ${st.firm ? '<span class="small muted">Verified on this call, all checkpoints ticked, no escalation flags, and every line has a rate.</span>' : `<ul class="small" style="margin:0;padding-left:18px">${st.reasons.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`}
         <div class="items">${c.lines.map(l => `<span>${esc(l[0])}</span><span class="r">${money(l[1])}</span>`).join('') || '<span class="muted">No priced lines</span><span></span>'}</div>
@@ -784,25 +783,23 @@
         <span class="src">Deposit: ${src('facts', 24)}</span></section>`;
     $('#estrange').hidden = st.firm;
     $('#estsay').innerHTML = st.firm ? sayBlock('Say this', firmSay(c.total), src('script', 15)) : sayBlock('Say this (preliminary)', prelimSay(), src('fast', 32));
-    const cmp = D.price.rates.map(x => { const cc = estCalc(est, x.term); return `<tr class="${x.term === est.term ? 'on' : ''}"><td>${esc(x.term)}</td><td>${money(cc.total)}</td><td>${money(cc.total * 0.5)}</td></tr>`; }).join('');
     const recap = () => {
-      const L = [`Edge Shines Christmas lighting estimate (${est.term} agreement)`];
+      const L = ['Edge Shines Christmas lighting estimate (3-Year Christmas Lighting Agreement)'];
       est.roof.filter(x => num(x.ft)).forEach(x => L.push(`  Roofline: ${x.label || 'section'} ${num(x.ft)} ft`));
       est.bush.filter(x => num(x.count)).forEach(x => L.push(`  Bushes: ${x.label || 'bushes'} ${num(x.count)} × ${num(x.per)} strands`));
       est.tree.filter(x => num(x.count)).forEach(x => L.push(`  Trees: ${x.label || 'trees'} ${num(x.count)} × ${num(x.per)} strands`));
       est.stake.filter(x => num(x.ft)).forEach(x => L.push(`  Ground stakes: ${x.label || 'run'} ${num(x.ft)} ft`));
       L.push('Pricing:'); c.lines.forEach(l => L.push(`  ${l[0]} = ${money(l[1])}`));
       if (c.missing.length) L.push('Not priced (rate needed): ' + c.missing.join('; '));
-      L.push(`Seasonal total: ${money(c.total)} before tax/approved changes`);
-      L.push(`Deposit (standard 50%, confirm agreement): ${money(dep)}`);
+      L.push(`Seasonal total: ${money(c.total)} per season before tax/approved changes`);
+      L.push(`Deposit (standard 50%): ${money(dep)} · Remaining seasonal balance: ${money(c.total - dep)}`);
+      L.push(`3-year agreement: ${money(c.total * 3)} across 3 seasons, same scope and annual price; billed per season`);
       L.push(`Status: ${st.firm ? 'Firm. Measurements, access and materials verified' : 'PRELIMINARY. ' + st.reasons.join('; ')}`);
       if (!st.firm && num(est.lo) && num(est.hi)) L.push(`Preliminary range given: ${money(Math.min(num(est.lo), num(est.hi)))}–${money(Math.max(num(est.lo), num(est.hi)))}`);
-      L.push('Rates: reference rate card, owner confirmation required.');
+      L.push('Rates: 2026 rate card ($6/ft roofline, $6/ft ground stakes, $30/strand).');
       return L.join('\n');
     };
-    $('#estcmp').innerHTML = `<section class="panel"><h3>Same scope, other terms</h3><table class="cmp"><thead><tr><th>Term</th><th>Seasonal</th><th>Deposit</th></tr></thead><tbody>${cmp}</tbody></table>
-        <span class="small muted">Use when the customer asks what the approved agreement lengths look like. Confirm the 2- and 4-year options are available.</span></section>
-      <div class="row">${copyBtn(recap, 'Copy quote recap for FLYRA', 'primary')}<button type="button" class="btn sm" data-go="flyra">FLYRA quoting →</button></div>`;
+    $('#estcmp').innerHTML = `<div class="row">${copyBtn(recap, 'Copy quote recap for FLYRA', 'primary')}<button type="button" class="btn sm" data-go="flyra">FLYRA quoting →</button></div>`;
   }
 
   /* ---------- AI Mockups ---------- */
@@ -835,7 +832,7 @@
     const foot = [c.roofFt && `roofline ${c.roofFt} ft`, c.sf && `ground stakes ${c.sf} ft`, c.bs && `bushes ${c.bs} mini strands`, c.ts && `trees ${c.ts} mini strands`].filter(Boolean).join('; ');
     const kFoot = NOTE_KEYS.find(k => /footage/i.test(k)), kPrice = NOTE_KEYS.find(k => /price/i.test(k)), kAreas = NOTE_KEYS.find(k => /design areas/i.test(k));
     if (kFoot && foot) flyraNotes[kFoot] = foot.charAt(0).toUpperCase() + foot.slice(1) + (est.verify.meas ? ' (verified)' : ' (estimated, not yet verified)');
-    if (kPrice) flyraNotes[kPrice] = `${money(c.total)} per season, ${est.term} (${st.firm ? 'firm quote' : 'preliminary estimate'})` + (c.missing.length ? '; not priced: ' + c.missing.join(', ') : '') + '; reference rate card, owner confirmation required';
+    if (kPrice) flyraNotes[kPrice] = `${money(c.total)} per season, 3-year agreement, deposit ${money(c.total * 0.5)} (${st.firm ? 'firm quote' : 'preliminary estimate'})` + (c.missing.length ? '; not priced: ' + c.missing.join(', ') : '') + '; 2026 rate card';
     if (kAreas && !String(flyraNotes[kAreas] || '').trim()) { const s = scopeText(); if (s) flyraNotes[kAreas] = 'Color: ___; areas: ' + s; }
     store.set('flyraNotes', flyraNotes);
     const y = window.scrollY; render(); window.scrollTo(0, y);
@@ -907,7 +904,7 @@
         <h4>Never promise these without checking</h4>${D.script.never.map(n => ruleRow(n, src('script', 25))).join('')}`)}
       ${sec('pb-03', D.fast.sheet, '8-minute quoting routine, pricing reference, quote checkpoint', `<p class="muted">${esc(D.fast.sub)}</p>
         <h4>The 8-minute remote quoting routine</h4>${tbl(['#', 'Action', 'How to do it', 'When to stop'], D.fast.routine.map(s => tr('pb-fast-' + s.row, [esc(s.n), `<b>${esc(s.action)}</b>`, esc(s.how), esc(s.stop)])))}
-        <h4 id="pb-fast-17">Pricing reference · owner must confirm current season</h4>${tbl(['Term', 'Roofline C9', 'Mini light strand', 'Ground stakes'], D.fast.rates.map(s => tr('', [`<b>${esc(s.term)}</b>`, esc(s.roof), esc(s.mini), esc(s.stake)])))}
+        <h4 id="pb-fast-17">2026 pricing · 3-year agreement</h4>${tbl(['Agreement', 'Roofline C9', 'Mini light strand', 'Ground stakes'], D.fast.rates.map(s => tr('', [`<b>${esc(s.term)}</b>`, esc(s.roof), esc(s.mini), esc(s.stake)])))}
         <div id="pb-fast-20">${ruleRow(D.fast.rateNote, src('fast', 20))}</div>
         <h4>Quote checkpoint · before saying a final total</h4>${tbl(['Verify', 'Why it matters', 'Seller action'], D.fast.checkpoint.map(s => tr('pb-fast-' + s.row, [`<b>${esc(s.verify)}</b>`, esc(s.why), esc(s.action)])))}
         <h4>What to say if you can’t verify the roof on the call</h4>${sayBlock('Say this', unq(D.fast.cantVerify), src('fast', 32), { id: 'pb-fast-32' })}`)}
@@ -982,7 +979,6 @@
     if (d.objgo) { go('objections', { obj: +d.objgo }); return; }
     if (d.obj) { objSel = +d.obj; render(); if (window.innerWidth <= 980) $('#objd').scrollIntoView({ block: 'start' }); return; }
     if (d.cat) { objCatSel = d.cat; const first = D.obj.items.find(o => d.cat === 'All' || objCat[o.row] === d.cat); if (first && d.cat !== 'All') objSel = first.row; render(); return; }
-    if (d.term) { est.term = d.term; render(); return; }
     if (d.addln) {
       const k = d.addln, L = d.label || '';
       const blank = { roof: { label: L, ft: '' }, bush: { label: L, count: '', per: 5 }, tree: { label: L, count: '', per: 10 }, stake: { label: L, ft: '' }, wreath: { size: 36, qty: '', rate: '' }, garland: { label: L, qty: '', unit: 'ft', rate: '' }, labor: { label: L, amt: '' } }[k];
